@@ -394,6 +394,14 @@ Grouped under a prefix, allowing to define multiple keybindings under the same p
   ;;  "h"                       'mdrp/resize-window-height)
 #+end_src
 
+
+M-/ do basic completion (already bound to C-<tab>
+#+begin_src emacs-lisp
+(general-define-key
+      "M-/" 'dabbrev-expand)
+#+end_src
+
+
 *** Locally
 :PROPERTIES:
 :CUSTOM_ID: locally
