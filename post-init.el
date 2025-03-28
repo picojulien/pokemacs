@@ -215,9 +215,13 @@ Matches the visited file name against the elements of `auto-insert-alist'."
 ;;  "w"                       'mdrp/resize-window-width
 ;;  "h"                       'mdrp/resize-window-height)
 
+(with-eval-after-load 'vertico
+      (general-define-key
+        :keymaps 'vertico-map
+        "<tab>" 'vertico-directory-enter))
 
 (general-define-key
- "M-/" 'dabbrev-expand)
+      "M-/" 'dabbrev-expand)
 
 ;; (general-define-key
 ;;  :keymaps 'tuareg-mode-map

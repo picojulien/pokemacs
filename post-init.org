@@ -394,6 +394,16 @@ Grouped under a prefix, allowing to define multiple keybindings under the same p
   ;;  "h"                       'mdrp/resize-window-height)
 #+end_src
 
+Ensure that tab works in mini-buffer
+Actually not working as expected, tab only validate
+Atually not working at all, minibuffer binding has priority
+
+#+begin_src emacs-lisp
+(with-eval-after-load 'vertico
+      (general-define-key
+        :keymaps 'vertico-map
+        "<tab>" 'vertico-directory-enter))
+#+end_src
 
 M-/ do basic completion (already bound to C-<tab>
 #+begin_src emacs-lisp
