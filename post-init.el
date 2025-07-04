@@ -223,6 +223,14 @@ Matches the visited file name against the elements of `auto-insert-alist'."
 (general-define-key
       "M-/" 'dabbrev-expand)
 
+(general-define-key
+      "M-l" 'downcase-dwim)
+(general-define-key
+      "M-c" 'capitalize-dwim)
+(general-define-key
+      "M-u" 'upcase-dwim)
+#+end_
+
 ;; (general-define-key
 ;;  :keymaps 'tuareg-mode-map
 ;;  "C-x M-1"                 'delete-other-windows
@@ -232,6 +240,9 @@ Matches the visited file name against the elements of `auto-insert-alist'."
 ;;  :keymaps 'tuareg-mode-map
 ;;  "C-x M-1"                 'delete-other-windows
 ;;  )
+
+(setq michelson-client-command "~/tezos/octez-client --base-dir /tmp/mockup --mode mockup --protocol ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK")
+(setq michelson-alphanet nil)
 
 (provide 'post-init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

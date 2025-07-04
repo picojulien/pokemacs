@@ -411,6 +411,17 @@ M-/ do basic completion (already bound to C-<tab>
       "M-/" 'dabbrev-expand)
 #+end_src
 
+restore legacy bindings for case change
+#+begin_src emacs-lisp
+(general-define-key
+      "M-l" 'downcase-dwim)
+(general-define-key
+      "M-c" 'capitalize-dwim)
+(general-define-key
+      "M-u" 'upcase-dwim)
+#+end_
+#+end_src
+
 
 *** Locally
 :PROPERTIES:
@@ -434,6 +445,12 @@ You can obviously combine ~:keymaps~ and ~:prefix~
   ;;  :keymaps 'tuareg-mode-map
   ;;  "C-x M-1"                 'delete-other-windows
   ;;  )
+#+end_src
+*  michelson mode
+
+#+begin_src emacs-lisp
+  (setq michelson-client-command "~/tezos/octez-client --base-dir /tmp/mockup --mode mockup --protocol ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK")
+(setq michelson-alphanet nil)
 #+end_src
 
 * End
