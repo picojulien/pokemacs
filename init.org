@@ -1037,7 +1037,7 @@ Stop creating files everywhere and put them all in a single place
 Create a ~#file#~ while waiting for it to be saved and for backup (if emacs crashes you can recover your previous session with ~M-x recover-session~)
 
 #+begin_src emacs-lisp
-  (auto-save-visited-mode 1)
+  (auto-save-visited-mode -1)
   (setopt
    auto-save-default t
    auto-save-timeout 60

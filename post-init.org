@@ -427,6 +427,14 @@ M-/ do basic completion (already bound to C-<tab>
 #+end_src
 
 You can obviously combine ~:keymaps~ and ~:prefix~
+* no auto-save
+
+#+begin_src emacs-lisp
+  ;; (
+  ;;  :keymaps 'tuareg-mode-map
+  ;;  "C-x M-1"                 'delete-other-windows
+  ;;  )
+#+end_src
 
 * End
 :PROPERTIES:

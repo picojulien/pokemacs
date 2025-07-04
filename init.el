@@ -553,7 +553,7 @@ Enabling this leads to a bug where your completion may replace the following wor
   :ensure (:wait t)
   :config (message "`no-littering' loaded"))
 
-(auto-save-visited-mode 1)
+(auto-save-visited-mode -1)
 (setopt
  auto-save-default t
  auto-save-timeout 60
