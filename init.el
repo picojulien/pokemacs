@@ -2468,6 +2468,16 @@ debian, and derivatives). On most it's 'fd'.")
   (setf (alist-get 'python-ts-mode apheleia-mode-alist)
         '(isort black))
   (push '(enh-ruby-mode . rubocop) apheleia-mode-alist)
+  (setf (alist-get 'prettier apheleia-formatters)
+        '("npx" "prettier" "--stdin-filepath" filepath))
+  (dolist (pair '((js-ts-mode         . prettier)
+                  (typescript-ts-mode . prettier)
+                  (tsx-ts-mode        . prettier)
+                  (json-ts-mode       . prettier)
+                  (css-mode           . prettier)
+                  (web-mode           . prettier)))
+    (setf (alist-get (car pair) apheleia-mode-alist)
+          (list (cdr pair))))
   (message "`apheleia' loaded"))
 
 (use-package dap-mode
@@ -5050,6 +5060,8 @@ Return the folder in which rust-analyzer will be started."
     :config
     (require 'zig-mode)
     (set-keymap-parent zig-ts-mode-map zig-mode-map)))
+
+(setq epg-pinentry-mode 'loopback)
 
 (add-hook 'elpaca-after-init-hook
           (lambda ()

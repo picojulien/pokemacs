@@ -3772,7 +3772,18 @@ Asynchronous code formatting after saving files.
     (setf (alist-get 'python-ts-mode apheleia-mode-alist)
           '(isort black))
     (push '(enh-ruby-mode . rubocop) apheleia-mode-alist)
+    (setf (alist-get 'prettier apheleia-formatters)
+          '("npx" "prettier" "--stdin-filepath" filepath))
+    (dolist (pair '((js-ts-mode         . prettier)
+                    (typescript-ts-mode . prettier)
+                    (tsx-ts-mode        . prettier)
+                    (json-ts-mode       . prettier)
+                    (css-mode           . prettier)
+                    (web-mode           . prettier)))
+      (setf (alist-get (car pair) apheleia-mode-alist)
+            (list (cdr pair))))
     (message "`apheleia' loaded"))
+
 #+end_src
 
 ** [[https://github.com/emacs-lsp/dap-mode][DAP]]
@@ -7329,6 +7340,16 @@ Zig expects to find the binary for ~zig~ and ~zls~ to be able to run LSP. Custom
       (require 'zig-mode)
       (set-keymap-parent zig-ts-mode-map zig-mode-map)))
 #+end_src
+** gpg
+:PROPERTIES:
+:CUSTOM_ID: gpg
+:END:
+Without this, emacs fails to query signature for gpgp
+
+#+begin_src emacs-lisp
+  (setq epg-pinentry-mode 'loopback)
+#+end_src
+
 
 * End
 :PROPERTIES:
